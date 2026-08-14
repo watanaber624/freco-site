@@ -1,13 +1,28 @@
 :root {
-  --brand: #d98298;
-  --brand-dark: #b9647b;
-  --brand-light: #fceef2;
-  --text: #4a4144;
-  --subtext: #766a6e;
-  --border: #eee2e6;
-  --background: #fffafb;
-  --white: #ffffff;
+  --primary: #6f919b;
+  --primary-dark: #587983;
+  --primary-light: #dce8ec;
+
+  --background: #f7fafb;
+  --surface: #ffffff;
+
+  --text-primary: #2d3338;
+  --text-secondary: #6f7a80;
+
+  --border: #e3ecef;
+
+  --accent: #c9aa7b;
+
+  --shadow: 0 8px 28px rgba(63, 89, 97, 0.08);
+
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
 }
+
+/* =========================
+   Base
+========================= */
 
 * {
   box-sizing: border-box;
@@ -19,199 +34,470 @@ html {
 
 body {
   margin: 0;
+
   font-family:
-    -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-  color: var(--text);
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP",
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+
+  color: var(--text-primary);
   background: var(--background);
+
   line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--brand-dark);
+  color: var(--primary);
   text-decoration: none;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--primary-dark);
 }
 
+img {
+  max-width: 100%;
+}
+
+/* =========================
+   Header
+========================= */
+
 header {
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(247, 250, 251, 0.92);
+
+  border-bottom: 1px solid rgba(111, 145, 155, 0.12);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .header-inner {
-  max-width: 960px;
+  max-width: 1100px;
+  min-height: 72px;
+
   margin: 0 auto;
-  padding: 18px 24px;
+  padding: 0 24px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* FRecoブランドロゴ */
 .logo {
-  font-size: 22px;
+  color: var(--primary);
+
+  font-family:
+    "Nunito Sans",
+    "Nunito",
+    "Avenir Next",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 29px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--brand-dark);
+
+  letter-spacing: -0.8px;
+
+  line-height: 1;
+
+  text-decoration: none;
 }
+
+/*
+  アプリアイコンのFReco文字に近づけるため、
+  通常本文より少し丸み・太さを感じる設定にしています。
+*/
 
 nav {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 28px;
+}
+
+nav a {
+  color: var(--text-secondary);
+
   font-size: 14px;
+  font-weight: 500;
 }
 
-main {
-  min-height: calc(100vh - 180px);
+nav a:hover {
+  color: var(--primary);
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 64px 24px;
-}
+/* =========================
+   Hero
+========================= */
 
 .hero {
+  min-height: 520px;
+
+  padding: 110px 24px 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
-  padding: 100px 24px 90px;
-  background: linear-gradient(180deg, #fcecef 0%, #fff7f8 55%, #fffcfc 100%);
+
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(220, 232, 236, 0.85) 0%,
+      rgba(247, 250, 251, 0) 48%
+    ),
+    var(--background);
 }
 
 .hero h1 {
-  margin: 0 0 18px;
-  font-size: 46px;
-  letter-spacing: 0.12em;
-  color: var(--brand-dark);
+  margin: 0 0 28px;
+
+  color: var(--primary);
+
+  font-family:
+    "Nunito Sans",
+    "Nunito",
+    "Avenir Next",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: clamp(52px, 8vw, 78px);
+  font-weight: 700;
+
+  letter-spacing: -2px;
+  line-height: 1;
 }
 
 .hero-copy {
-  margin: 0;
-  font-size: 22px;
+  margin: 0 0 28px;
+
+  color: var(--text-primary);
+
+  font-size: clamp(24px, 4vw, 34px);
   font-weight: 600;
+
+  letter-spacing: 0.02em;
 }
 
 .hero-description {
-  margin: 24px auto 0;
-  max-width: 560px;
-  color: var(--subtext);
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 16px;
+  line-height: 2;
+
+  max-width: 620px;
 }
 
+/* =========================
+   Section
+========================= */
+
 .section {
-  padding: 72px 24px;
+  padding: 96px 24px;
+}
+
+.section:nth-of-type(even) {
+  background: #ffffff;
 }
 
 .section-inner {
-  max-width: 960px;
+  width: 100%;
+  max-width: 1100px;
+
   margin: 0 auto;
 }
 
 .section h2 {
-  margin: 0 0 32px;
+  margin: 0 0 52px;
+
+  color: var(--text-primary);
+
   text-align: center;
-  font-size: 28px;
+
+  font-size: clamp(27px, 4vw, 34px);
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
 }
+
+/* =========================
+   Feature cards
+========================= */
 
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+
+  gap: 24px;
 }
 
 .card {
-  background: var(--white);
+  padding: 30px;
+
+  background: var(--surface);
+
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 28px;
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 34px rgba(63, 89, 97, 0.11);
 }
 
 .card h3 {
-  margin-top: 0;
+  margin: 0 0 12px;
+
+  color: var(--primary-dark);
+
   font-size: 18px;
+  font-weight: 700;
 }
 
 .card p {
-  margin-bottom: 0;
-  color: var(--subtext);
-  font-size: 14px;
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 15px;
+}
+
+/* =========================
+   Document pages
+========================= */
+
+.container {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+  padding: 80px 24px 110px;
+}
+
+.document {
+  background: transparent;
 }
 
 .document h1 {
-  margin-bottom: 40px;
+  margin: 0 0 12px;
+
+  color: var(--text-primary);
+
+  font-size: clamp(32px, 5vw, 42px);
+  font-weight: 700;
+
+  letter-spacing: 0.01em;
+}
+
+.updated {
+  margin-bottom: 48px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
 }
 
 .document h2 {
-  margin-top: 48px;
-  font-size: 21px;
+  margin-top: 52px;
+  margin-bottom: 16px;
+
+  color: var(--primary-dark);
+
+  font-size: 23px;
+  font-weight: 700;
 }
 
 .document h3 {
-  margin-top: 32px;
-  font-size: 17px;
+  margin-top: 28px;
+  margin-bottom: 10px;
+
+  color: var(--text-primary);
+
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .document p,
 .document li {
-  font-size: 15px;
+  color: #4e5a5f;
 }
 
-.document ul,
-.document ol {
+.document ul {
   padding-left: 24px;
 }
 
-.updated {
-  color: var(--subtext);
-  font-size: 14px;
+.document li {
+  margin-bottom: 7px;
 }
+
+/* =========================
+   Contact
+========================= */
 
 .contact-box {
-  margin-top: 32px;
-  padding: 24px;
-  border-radius: 16px;
-  background: var(--brand-light);
+  margin: 28px 0;
+
+  padding: 24px 28px;
+
+  background: var(--primary-light);
+
+  border: 1px solid rgba(111, 145, 155, 0.18);
+  border-radius: var(--radius-md);
 }
 
+.contact-box p {
+  margin: 6px 0;
+}
+
+.contact-box a {
+  color: var(--primary-dark);
+
+  font-weight: 700;
+}
+
+/* =========================
+   Footer
+========================= */
+
 footer {
+  padding: 44px 24px;
+
+  color: var(--text-secondary);
+
+  background: #edf4f6;
+
   border-top: 1px solid var(--border);
-  background: var(--white);
-  padding: 36px 24px;
+
   text-align: center;
+
   font-size: 13px;
-  color: var(--subtext);
 }
 
 .footer-links {
+  margin-bottom: 16px;
+
   display: flex;
   justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+
+  gap: 24px;
 }
 
-@media (max-width: 700px) {
-  nav {
-    display: none;
-  }
+.footer-links a {
+  color: var(--text-secondary);
+}
 
-  .hero {
-    padding: 76px 24px 70px;
-  }
+.footer-links a:hover {
+  color: var(--primary);
+}
 
-  .hero h1 {
-    font-size: 38px;
-  }
+/* =========================
+   Responsive
+========================= */
 
-  .hero-copy {
-    font-size: 19px;
-  }
-
+@media (max-width: 800px) {
   .features {
     grid-template-columns: 1fr;
   }
 
+  .header-inner {
+    min-height: 64px;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .hero {
+    min-height: 470px;
+
+    padding-top: 90px;
+    padding-bottom: 80px;
+  }
+
+  .section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-inner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero h1 {
+    font-size: 54px;
+  }
+
+  .hero-copy {
+    font-size: 23px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .container {
-    padding-top: 44px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .card {
+    padding: 25px;
+  }
+
+  .footer-links {
+    gap: 14px;
   }
 }
