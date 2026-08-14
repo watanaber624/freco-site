@@ -1,27 +1,37 @@
 :root {
-  --primary: #6f919b;
-  --primary-dark: #587983;
-  --primary-light: #dce8ec;
+  /* =========================
+     FReco Brand Colors
+  ========================= */
 
-  --background: #f7fafb;
+  --primary: #6f9ed8;
+  --primary-dark: #527fba;
+  --primary-light: #eaf2fc;
+  --primary-extra-light: #f4f8fd;
+
+  --background: #f7fafd;
   --surface: #ffffff;
 
-  --text-primary: #2d3338;
-  --text-secondary: #6f7a80;
+  --text-primary: #27384f;
+  --text-secondary: #6f7f91;
+  --text-tertiary: #94a1ae;
 
-  --border: #e3ecef;
+  --border: #dce7f2;
 
-  --accent: #c9aa7b;
+  --success: #5e9b78;
+  --warning: #c79a4b;
+  --error: #c96565;
 
-  --shadow: 0 8px 28px rgba(63, 89, 97, 0.08);
+  --shadow:
+    0 8px 28px rgba(71, 108, 154, 0.08);
 
   --radius-lg: 24px;
   --radius-md: 18px;
   --radius-sm: 12px;
 }
 
+
 /* =========================
-   Base
+   Reset / Base
 ========================= */
 
 * {
@@ -36,19 +46,27 @@ body {
   margin: 0;
 
   font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP",
-    "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans JP",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    sans-serif;
 
   color: var(--text-primary);
   background: var(--background);
 
-  line-height: 1.8;
+  line-height: 1.85;
+
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
   color: var(--primary);
   text-decoration: none;
+
   transition:
     color 0.2s ease,
     opacity 0.2s ease;
@@ -60,7 +78,9 @@ a:hover {
 
 img {
   max-width: 100%;
+  height: auto;
 }
+
 
 /* =========================
    Header
@@ -71,15 +91,16 @@ header {
   top: 0;
   z-index: 100;
 
-  background: rgba(247, 250, 251, 0.92);
+  background: rgba(247, 250, 253, 0.94);
 
-  border-bottom: 1px solid rgba(111, 145, 155, 0.12);
+  border-bottom: 1px solid rgba(111, 158, 216, 0.14);
 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
 
 .header-inner {
+  width: 100%;
   max-width: 1100px;
   min-height: 72px;
 
@@ -91,7 +112,11 @@ header {
   justify-content: space-between;
 }
 
-/* FRecoブランドロゴ */
+
+/* =========================
+   FReco Logo
+========================= */
+
 .logo {
   color: var(--primary);
 
@@ -108,20 +133,25 @@ header {
   font-weight: 700;
 
   letter-spacing: -0.8px;
-
   line-height: 1;
 
   text-decoration: none;
 }
 
-/*
-  アプリアイコンのFReco文字に近づけるため、
-  通常本文より少し丸み・太さを感じる設定にしています。
-*/
+.logo:hover {
+  color: var(--primary);
+  opacity: 0.85;
+}
+
+
+/* =========================
+   Navigation
+========================= */
 
 nav {
   display: flex;
   align-items: center;
+
   gap: 28px;
 }
 
@@ -135,6 +165,7 @@ nav a {
 nav a:hover {
   color: var(--primary);
 }
+
 
 /* =========================
    Hero
@@ -154,9 +185,9 @@ nav a:hover {
 
   background:
     radial-gradient(
-      circle at 50% 10%,
-      rgba(220, 232, 236, 0.85) 0%,
-      rgba(247, 250, 251, 0) 48%
+      circle at 50% 5%,
+      rgba(111, 158, 216, 0.13) 0%,
+      rgba(111, 158, 216, 0) 48%
     ),
     var(--background);
 }
@@ -188,21 +219,22 @@ nav a:hover {
   color: var(--text-primary);
 
   font-size: clamp(24px, 4vw, 34px);
-  font-weight: 600;
+  font-weight: 650;
 
   letter-spacing: 0.02em;
 }
 
 .hero-description {
+  max-width: 620px;
+
   margin: 0;
 
   color: var(--text-secondary);
 
   font-size: 16px;
   line-height: 2;
-
-  max-width: 620px;
 }
+
 
 /* =========================
    Section
@@ -213,7 +245,7 @@ nav a:hover {
 }
 
 .section:nth-of-type(even) {
-  background: #ffffff;
+  background: var(--surface);
 }
 
 .section-inner {
@@ -236,12 +268,14 @@ nav a:hover {
   letter-spacing: 0.02em;
 }
 
+
 /* =========================
-   Feature cards
+   Feature Cards
 ========================= */
 
 .features {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
 
   gap: 24px;
@@ -259,13 +293,17 @@ nav a:hover {
 
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-3px);
 
-  box-shadow: 0 12px 34px rgba(63, 89, 97, 0.11);
+  border-color: rgba(111, 158, 216, 0.35);
+
+  box-shadow:
+    0 12px 34px rgba(71, 108, 154, 0.12);
 }
 
 .card h3 {
@@ -285,8 +323,9 @@ nav a:hover {
   font-size: 15px;
 }
 
+
 /* =========================
-   Document pages
+   Privacy / Terms / Support
 ========================= */
 
 .container {
@@ -315,61 +354,90 @@ nav a:hover {
 .updated {
   margin-bottom: 48px;
 
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
 
   font-size: 14px;
 }
 
 .document h2 {
-  margin-top: 52px;
-  margin-bottom: 16px;
+  position: relative;
 
-  color: var(--primary-dark);
+  margin-top: 56px;
+  margin-bottom: 18px;
+
+  padding-left: 16px;
+
+  color: var(--text-primary);
 
   font-size: 23px;
   font-weight: 700;
 }
 
+.document h2::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0.28em;
+  bottom: 0.28em;
+  left: 0;
+
+  width: 4px;
+
+  background: var(--primary);
+
+  border-radius: 4px;
+}
+
 .document h3 {
-  margin-top: 28px;
+  margin-top: 30px;
   margin-bottom: 10px;
 
-  color: var(--text-primary);
+  color: var(--primary-dark);
 
   font-size: 18px;
   font-weight: 700;
 }
 
-.document p,
-.document li {
-  color: #4e5a5f;
+.document p {
+  color: var(--text-secondary);
 }
 
-.document ul {
+.document ul,
+.document ol {
   padding-left: 24px;
 }
 
 .document li {
-  margin-bottom: 7px;
+  margin-bottom: 8px;
+
+  color: var(--text-secondary);
 }
 
+.document strong {
+  color: var(--text-primary);
+}
+
+
 /* =========================
-   Contact
+   Contact Box
 ========================= */
 
 .contact-box {
-  margin: 28px 0;
+  margin: 30px 0;
 
-  padding: 24px 28px;
+  padding: 26px 30px;
 
   background: var(--primary-light);
 
-  border: 1px solid rgba(111, 145, 155, 0.18);
+  border: 1px solid rgba(111, 158, 216, 0.2);
   border-radius: var(--radius-md);
 }
 
 .contact-box p {
   margin: 6px 0;
+
+  color: var(--text-secondary);
 }
 
 .contact-box a {
@@ -377,6 +445,67 @@ nav a:hover {
 
   font-weight: 700;
 }
+
+.contact-box a:hover {
+  color: var(--primary);
+}
+
+
+/* =========================
+   Buttons
+========================= */
+
+.button,
+.btn,
+.primary-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+
+  padding: 0 24px;
+
+  color: #ffffff;
+
+  background: var(--primary);
+
+  border: none;
+  border-radius: var(--radius-sm);
+
+  font: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.button:hover,
+.btn:hover,
+.primary-button:hover {
+  color: #ffffff;
+
+  background: var(--primary-dark);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   Divider
+========================= */
+
+hr {
+  margin: 48px 0;
+
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
 
 /* =========================
    Footer
@@ -387,7 +516,7 @@ footer {
 
   color: var(--text-secondary);
 
-  background: #edf4f6;
+  background: var(--primary-extra-light);
 
   border-top: 1px solid var(--border);
 
@@ -413,6 +542,7 @@ footer {
 .footer-links a:hover {
   color: var(--primary);
 }
+
 
 /* =========================
    Responsive
@@ -452,6 +582,7 @@ footer {
   }
 }
 
+
 @media (max-width: 600px) {
   .header-inner {
     padding-left: 18px;
@@ -489,12 +620,19 @@ footer {
   }
 
   .container {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 60px 20px 90px;
+  }
+
+  .document h2 {
+    font-size: 21px;
   }
 
   .card {
     padding: 25px;
+  }
+
+  .contact-box {
+    padding: 22px;
   }
 
   .footer-links {
