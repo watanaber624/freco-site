@@ -21,14 +21,12 @@
   --warning: #c79a4b;
   --error: #c96565;
 
-  --shadow:
-    0 8px 28px rgba(71, 108, 154, 0.08);
+  --shadow: 0 8px 28px rgba(71, 108, 154, 0.08);
 
   --radius-lg: 24px;
   --radius-md: 18px;
   --radius-sm: 12px;
 }
-
 
 /* =========================
    Reset / Base
@@ -46,12 +44,10 @@ body {
   margin: 0;
 
   font-family:
+    "Noto Sans JP",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
-    "Noto Sans JP",
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic",
     sans-serif;
 
   color: var(--text-primary);
@@ -80,7 +76,6 @@ img {
   max-width: 100%;
   height: auto;
 }
-
 
 /* =========================
    Header
@@ -112,27 +107,24 @@ header {
   justify-content: space-between;
 }
 
-
 /* =========================
    FReco Logo
 ========================= */
 
 .logo {
-  color: var(--primary);
+  color: #6f9ed8;
 
   font-family:
-    "Nunito Sans",
     "Nunito",
-    "Avenir Next",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
 
-  font-size: 29px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 800;
 
-  letter-spacing: -0.8px;
+  letter-spacing: -1.2px;
   line-height: 1;
 
   text-decoration: none;
@@ -142,7 +134,6 @@ header {
   color: var(--primary);
   opacity: 0.85;
 }
-
 
 /* =========================
    Navigation
@@ -165,7 +156,6 @@ nav a {
 nav a:hover {
   color: var(--primary);
 }
-
 
 /* =========================
    Hero
@@ -195,22 +185,20 @@ nav a:hover {
 .hero h1 {
   margin: 0 0 28px;
 
-  color: var(--primary);
+  color: #6f9ed8;
 
   font-family:
-    "Nunito Sans",
     "Nunito",
-    "Avenir Next",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
 
   font-size: clamp(52px, 8vw, 78px);
-  font-weight: 700;
+  font-weight: 800;
 
-  letter-spacing: -2px;
-  line-height: 1;
+  letter-spacing: -2.5px;
+  line-height: 0.95;
 }
 
 .hero-copy {
@@ -234,7 +222,6 @@ nav a:hover {
   font-size: 16px;
   line-height: 2;
 }
-
 
 /* =========================
    Section
@@ -267,7 +254,6 @@ nav a:hover {
 
   letter-spacing: 0.02em;
 }
-
 
 /* =========================
    Feature Cards
@@ -302,8 +288,7 @@ nav a:hover {
 
   border-color: rgba(111, 158, 216, 0.35);
 
-  box-shadow:
-    0 12px 34px rgba(71, 108, 154, 0.12);
+  box-shadow: 0 12px 34px rgba(71, 108, 154, 0.12);
 }
 
 .card h3 {
@@ -322,7 +307,6 @@ nav a:hover {
 
   font-size: 15px;
 }
-
 
 /* =========================
    Privacy / Terms / Support
@@ -418,7 +402,6 @@ nav a:hover {
   color: var(--text-primary);
 }
 
-
 /* =========================
    Contact Box
 ========================= */
@@ -449,7 +432,6 @@ nav a:hover {
 .contact-box a:hover {
   color: var(--primary);
 }
-
 
 /* =========================
    Buttons
@@ -494,7 +476,6 @@ nav a:hover {
   transform: translateY(-1px);
 }
 
-
 /* =========================
    Divider
 ========================= */
@@ -505,7 +486,6 @@ hr {
   border: 0;
   border-top: 1px solid var(--border);
 }
-
 
 /* =========================
    Footer
@@ -542,7 +522,6 @@ footer {
 .footer-links a:hover {
   color: var(--primary);
 }
-
 
 /* =========================
    Responsive
@@ -581,7 +560,6 @@ footer {
     padding-bottom: 72px;
   }
 }
-
 
 @media (max-width: 600px) {
   .header-inner {
