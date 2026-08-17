@@ -40,3 +40,9 @@ h1,h2,h3{text-wrap:balance;word-break:auto-phrase}
 @media(max-width:980px) and (min-width:801px){.hero-inner{grid-template-columns:1.08fr .92fr;gap:30px}.hero-device{width:280px;height:668px}.visual{min-height:668px}.visual::before{width:420px}}
 @media(max-width:800px){.hero-inner{grid-template-columns:1fr;gap:38px;padding-top:58px;padding-bottom:70px}.hero .app-store-badge-link{margin:auto}.visual{min-height:662px;transform:none}.visual::before{width:min(430px,92vw)}.hero-device{width:278px;height:662px}}
 @media(max-width:430px){.hero-inner{gap:32px;padding-top:48px;padding-bottom:60px}.visual{min-height:608px}.visual::before{width:360px}.hero-device{width:255px;height:608px;border-radius:36px}.hero-device img{border-radius:28px}}
+
+/* Support contact form */
+.contact-box p+p{margin-top:8px}
+.contact-form-action{margin:24px 0 14px}
+.contact-form-action .primary-button{max-width:100%;text-align:center}
+.contact-note{font-size:13px}
